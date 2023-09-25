@@ -1,0 +1,19 @@
+name: Sleep
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sleep:
+    name: sleep
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleepy time
+        run: sleep 10s
+
+  do-something-later:
+    needs: sleep
+    runs-on: ubuntu-latest
+    steps:
+      - name: Something later
+        run: echo "I did this later"
